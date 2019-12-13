@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "score score"
+    "game dashboard";  
+}
+
+.title {
+  grid-area: title;
+  display: none;
+  align-items: center;
+  justify-items: end;
+  grid-template-columns: auto auto;
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 3rem;
+  .menu {
+    margin-right: 1rem;;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+}
+
+.score {
+  grid-area: score;
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  width: 100%;
+  height: 100%;
+  min-height: 5rem;
+  background-color: greenyellow;
+  padding: 1rem;
+}
+
+.game {
+  grid-area: game;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  padding: 1rem;
+}
+
+.dashboard {
+  grid-area: dashboard;
+  display: grid;
+  align-items: start;
+  justify-items: start;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      "title"
+      "score"
+      "game";
+  }
+  .title {
+    display: grid;
+  }
+  .dashboard.hidden {
+    display: none;
+  }
+  .dashboard {
+    top: 3rem;
+    position: absolute;
+    display: grid;
+    min-height: calc(100vh - 3rem);
+  }
+}
